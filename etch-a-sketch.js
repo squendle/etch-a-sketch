@@ -1,16 +1,9 @@
 // Here be the etch-a-sketch code
 
-// Create a div container to hold my EAS grid - done
-// class = .eas-container
-
-// create variables to select the container, and one to store the grid squares going inside it
-
 const container = document.querySelector(".eas-container");
 
-// write a function to create a 16x16 grid of divs inside of the container
-
 function createGrid(squares) {
-  let size = (960 / squares);
+  let size = (550 / squares);
   
   for (let i = 1; i <= squares; i++){
     for (let j = 1; j <= squares; j++) {
@@ -20,15 +13,10 @@ function createGrid(squares) {
       container.appendChild(square);
     }
   }
-  
 };
-
 // then this should put the grid in the container...
 
-let grid = createGrid(64);
-//success!
-
-
+let grid = createGrid(16);
 
 //this function adds red to a targeted element
 
@@ -40,5 +28,3 @@ function colorChange(e){
 
 let pixels = document.querySelectorAll(".pixel");
 pixels.forEach(pixel => pixel.addEventListener("mouseover", colorChange));
-
-//success again!!
