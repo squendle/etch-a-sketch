@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  background-color: #000000;
   color: #ffffff;
   font-family: 'Ubuntu';
 }
@@ -11,10 +10,50 @@ h1 {
   color: yellow;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
+  margin: 0;
+  padding: 0;
   flex-direction: column;
+  background-color: #000000;
+ 
+}
+
+.header {
+  display: flex;
+  background-color: #6b1584;
+  color: #f2ff00;
+  justify-content: space-between;
   align-items: center;
+  padding: 11px;
+}
+
+#logo {
+  height: 88px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  padding-left: 24px;
+  padding-right: 24px; 
+  font-size: 24px;
+  font-weight: 800;
+}
+a {
+  color: #f2ff00;
+  text-decoration: none;
 }
 
 .container {
@@ -52,6 +91,6 @@ body {
   width: 550px;
 }
 
-.hovered {
-  background-color: red;
+.purp-text {
+  color: #bc19eb;
 }
