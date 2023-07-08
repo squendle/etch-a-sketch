@@ -1,30 +1,43 @@
-// Here be the etch-a-sketch code
+// Here be the Etch-a-Squetch code
+
+//all this stuff handles the grid - setting the grid size, etc
 
 const easContainer = document.querySelector(".eas-container");
 
-//this is a start, but I need the squares value to update to the text input when the button is clicked
-const gridSize = document.getElementById("grid-size");
 let squares = 16;
-gridSize.onchange = function () {
+let pixels;
+createGrid(squares);
+const gridSize = document.getElementById("grid-size");
+const gridBtn = document.getElementById("grid-btn").onclick = setGridSize;
+
+function setGridSize(){
   squares = gridSize.value;
+  if (squares > 64){
+    alert("Maximum grid size is 64")
+  } else {
+  clearGrid();
+  createGrid(squares);
+  }
 };
 
 function createGrid(squares) {
   let size = (550 / squares);
-  
   for (let i = 1; i <= squares; i++){
     for (let j = 1; j <= squares; j++) {
       let square = document.createElement("div");
-      square.setAttribute('style', `border: 1px solid darkgrey; height: ${size}px; width: ${size}px`);
+      square.setAttribute('style', `border: 1px solid rgba(91, 91, 91, 0.2); height: ${size}px; width: ${size}px`);
       square.setAttribute('class', 'pixel');
       easContainer.appendChild(square);
     }
   }
+  draw();
 };
-// then this should put the grid in the container...
 
-let grid = createGrid(squares);
-
+function clearGrid() {
+  while (easContainer.firstChild){
+    easContainer.removeChild(easContainer.firstChild);
+  }
+};
 
 // this creates a click and drag boolean to test when drawing on the eas
 
@@ -36,20 +49,30 @@ window.addEventListener("mouseup", () => {
   isDrawing = false;
 });
 
-//this adds a color (chosen by the color picker) to a targeted element
 
+
+//this adds a color (chosen by the color picker) to a targeted element
 const colorPick = document.getElementById("color-pick");
-let chosenColor = '#ff0000';
+let chosenColor = '#bc19eb';
 colorPick.onchange = function () {
   chosenColor = colorPick.value;
 };
 
 function colorChange(e){
   //if isDrawing is true, we change each pixel to the chosen color
-  if (isDrawing){this.style.backgroundColor = chosenColor;}
+  if (isDrawing){this.style.backgroundColor = chosenColor};
 };
 
-//mouseover executes colorChange on each pixel div
 
-let pixels = document.querySelectorAll(".pixel");
-pixels.forEach(pixel => pixel.addEventListener("mouseover", colorChange));
+//the draw function that executes a color change on mouseover
+function draw() {
+  pixels = document.querySelectorAll(".pixel");
+  pixels.forEach(pixel => pixel.addEventListener("mouseover", colorChange));
+};
+
+// this stuff handles the reset/"shake it" button
+const resetBtn = document.getElementById("shake-it").onclick = function() {
+  pixels = document.querySelectorAll(".pixel");
+  pixels.forEach(pixel => pixel.style.backgroundColor = "#000000");
+};
+

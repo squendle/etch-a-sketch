@@ -1,6 +1,14 @@
 * {
   box-sizing: border-box;
   background-color: #000000;
+  color: #ffffff;
+  font-family: 'Ubuntu';
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  color: yellow;
 }
 
 body {
@@ -11,20 +19,33 @@ body {
 
 .container {
   display: flex;
-  gap: 11px;
+  gap: 22px;
+  justify-content: center;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
+  gap: 11px;
+  width: 222px;
+  align-items: center;
+  font-size: 22px;
+  border: 7px solid yellow;
+  border-radius: 22px;
+  padding-top: 33px;
 }
 
-#color-pick {
-  width: auto;
+#grid-size {
+  width: 55px;
+}
+
+.color-input {
+  display: flex;
+  gap: 11px;
 }
 
 .eas-container {
-  /* outline: 1px solid red; */
+  outline: 7px solid red;
   display: flex;
   flex-wrap: wrap;
   height: 550px;
