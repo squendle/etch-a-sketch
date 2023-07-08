@@ -3,8 +3,28 @@
   background-color: #000000;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  gap: 11px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+#color-pick {
+  width: auto;
+}
+
 .eas-container {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   display: flex;
   flex-wrap: wrap;
   height: 550px;
