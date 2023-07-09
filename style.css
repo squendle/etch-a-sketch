@@ -94,3 +94,23 @@ a {
 .purp-text {
   color: #bc19eb;
 }
+
+input {
+  background-color: #000000;
+  color: yellow;
+}
+
+input[type=button]{
+  padding: 2px 11px;
+  border-radius: 7px;
+}
+
+.footer {
+  display: flex;
+  background-color: #6b1584;
+  color: #f2ff00;
+  justify-content: center;
+  align-items: center;
+  padding: 11px;
+  margin-top: 33px;
+}
